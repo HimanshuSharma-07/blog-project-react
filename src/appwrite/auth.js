@@ -14,7 +14,7 @@ export class AuthServices {
         this.client
             .setEndpoint(conf.apiwriteUrl)
             .setProject(conf.apiwriteProjectId)
-            this.account = new Account(this.client)
+        this.account = new Account(this.client)
     }
 
     async createAccount({email, password, name}){
