@@ -7,6 +7,10 @@ import Button from "./Button"
 import Input from "./Input"
 import Select from "./Select"
 import RTE from "./RTE"
+import Signup from "./Signup"
+import Login from "./Login"
+import PostCard from "./PostCard"
+import PostForm from "../components/post-from/PostForm"
 
 
 
@@ -19,6 +23,10 @@ export {
     Button,
     Input,
     Select,
-    RTE
-    
+    RTE,
+    Signup,
+    Login,
+    PostCard,
+    PostForm,
+ 
 }
