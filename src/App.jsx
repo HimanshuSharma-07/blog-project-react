@@ -1,38 +1,33 @@
-import {Header, Footer} from "./components/index"
-import { useEffect, useState } from "react"
-import { useDispatch } from "react-redux"
-import authsService from "./appwrite/auth"
+import React, { useState, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import authService from "./appwrite/auth"
 import {login, logout} from "./store/authSlice"
-
-
+import { Footer, Header } from './components'
+import { Outlet } from 'react-router-dom'
 
 function App() {
-
-  const [loading , setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
   const dispatch = useDispatch()
 
   useEffect(() => {
-    authsService.getCurrentUser()
+    authService.getCurrentUser()
     .then((userData) => {
       if (userData) {
-        dispatch({userData})
-      }
-      else{
+        dispatch(login({userData}))
+      } else {
         dispatch(logout())
       }
     })
     .finally(() => setLoading(false))
   }, [])
-
+  
   return !loading ? (
-    <div className="min-h-screen flex  flex-wrap  bg-gray-400">
-      <div className="w-full flex flex-col items-center justify-between">
-          <Header />
-          <main>
-            <h1>Test</h1>
-          </main>
-          <Footer />
-      </div>
+    <div className="min-h-screen flex flex-col bg-gray-50">
+      <Header />
+      <main className="flex-grow">
+        <Outlet />
+      </main>
+      <Footer />
     </div>
   ) : null
 }
