@@ -1,1 +1,10 @@
 @import "tailwindcss";
+
+
+
+@theme {
+    --color-background-color :#57d629;
+    --color-gray-color: #111111;
+    --color-gradation: # #13c2fd;
+    --color-card-bg: ##252525
+}
